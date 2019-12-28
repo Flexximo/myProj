@@ -1,0 +1,43 @@
+{% extends 'homepage.html' %}
+{% load staticfiles %}
+{% block extrahead %}
+<link rel="stylesheet" media="all" href="{% static 'testapp/loginstyle.css' %}">
+{% endblock %}
+{% block title %} 
+    Login
+{% endblock %}
+{% block body %}
+
+  <div class="registerbox">
+    <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-12">
+      <form method="post"  novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <label></label>
+        <h2>Username</h2>
+        {{ form.username }}
+        <h2>Password</h2>
+        {{ form.password }}
+        <button type="submit" class="success">Log in</button>
+      </form>
+      {% if form.non_field_errors %}
+    <div class="message">
+      {% for error in form.non_field_errors %}
+        <p>{% if forloop.last %}{% endif %}{{ error }}</p>
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+      </button>
+    </div>
+    {% endif %}
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'homepage.html' %}
+{% load staticfiles %}
+{% block extrahead %}
+ <link rel="stylesheet" media="all" href="{% static 'testapp/style.css' %}" type="text/css">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="container0">
+            <hr>
+            <div class="invoices">Invoices</div>
+        </div>
+        {% if user.username.is_admin or user.username.is_moderator %}
+        <div class="form-action">
+            <div id="actions">Actions</div>
+            <form method="GET" action="{% url 'invoices_page' %}" novalidate>
+                <input type="submit" id="btn" value="Add new">
+            </form>
+        </div>
+        {% else %}
+        <p>Welcome, Guest</p>
+        <div class="message">
+            <form method="GET" action="{% url 'login' %}" novalidate>
+                <input type="submit" id="btnA" value="Log in">
+
+            </form>
+
+        </div>
+        {% endif %}
+        <div class="table">
+            <div class="tablename">Invoices</div>
+            <div class="row">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul id="c">
+                        <li>Create</li>
+                        {% for item in objects %}
+                        <li>{{ item.date }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul id="n">
+                        <li>No</li>
+                        {% for item in objects %}
+                        <li>{{ item.number }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul id="s">
+                        <li>Supply</li>
+                        {% for item in objects %}
+                        <li>{{ item.supply }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul id="co">
+                        <li>Comment</li>
+                        {% for item in objects %}
+                        <li>{{ item.comment }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}
+{% block heading %}
+
+{% endblock %}
+
+{% block content %} {%endblock %}

@@ -1,0 +1,116 @@
+
+
+.container-fluid {
+    position: relative;
+    top: 50px;
+    background-color: rgb(236, 236, 241);
+    width: 90%;
+    max-width: 960px;
+    height: 100%;
+    min-height: 600px;
+    font-size: 20px;
+}
+
+.container0 {
+
+    position: relative;
+    padding-top: 20px;
+    height: 20%;
+    top: 0px
+
+
+}
+
+.table {
+    box-sizing: border-box;
+}
+.invoices {
+    padding: 0px 0px 0px 5px;
+    position: absolute;
+    left: 0px;
+    top: 21px;
+    background: #fff;
+    background-color: rgb(236, 236, 241);
+    border-left: 4px solid rgb(177, 186, 236, 0.5);
+    border-radius: 2px;
+
+}
+
+textarea {
+    display: block;
+    width: 100%;
+}
+
+input, label  {
+    display:block;
+
+}
+input:not(#save_button)  {
+    width: 100%;
+    padding-left: 5px;
+}
+
+
+svg  {
+    padding: 5px;
+    color: red;
+    position: relative;
+    float: right;
+    top: -36px;
+    left: 0px;
+    border: 1px solid red;
+
+}
+.form-action {
+    height: auto;
+    margin-top: 50px;
+    padding: 25px 30px;
+    outline: 1px solid rgb(177, 186, 236, 0.5);
+    border-radius: 1px;
+    box-sizing: border-box;
+    outline-offset: -10px;
+    background-color: white;
+    width: auto;
+    display: block;
+}
+
+
+#hidden {
+
+}
+
+::placeholder {
+    padding-left: 5px;
+}
+
+.placeholder-pink::-webkit-input-placeholder {
+    color: #FF69B4;
+}
+
+.placeholder-green::-webkit-input-placeholder {
+    color: green;
+}
+#save_button {
+    position: relative;
+    margin-left: 90%;
+    float:right;
+    margin-top: 30px;
+    padding: 10px 20px 10px 20px;
+    font-size: 10px;
+    font-family: inherit;
+    background-color: rgb(28, 100, 184);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: Arial;
+}
+
+@media only screen and (max-width: 400px) {
+  #save_button {
+   margin-left: 60%;
+  }
+}

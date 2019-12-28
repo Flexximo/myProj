@@ -1,0 +1,106 @@
+{% extends 'homepage.html' %}
+{% load staticfiles %}
+{% block extrahead %}
+ <link rel="stylesheet" media="all" href="{% static 'testapp/style.css' %}" type="text/css">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="container0">
+            <hr>
+            <div class="invoices">Invoices</div>
+            <p>Welcome, {{ request.user.username }}</p>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="form-action">
+            <div id="actions">Actions</div>
+            <div class="row">
+                <div class="col-sm-1 col-sm-1 col-md-1 col-lg-2">
+                    <form method="GET" action="{% url 'invoices_page' %}" novalidate>
+                        <input type="submit" id="btnA" value="Add new">
+                    </form>
+                 </div>
+                 <div class="col-sm-1 col-sm-9 col-md-9 col-lg-9">
+                    <form method="GET" action="{% url 'logout' %}" novalidate>
+                        <input type="submit" id="btnB" value="Logout">
+                     </form>
+                </div>
+            </div>
+
+        </div>
+        {% else %}
+        <div class="message">
+            <button id="btn"><a href="{% url 'login' %}">Log in</a></button>
+            <div>You are allowed to see the list only. Log in for editing!</div>
+        </div>
+        {% endif %}
+        <div class="table">
+            <div class="tablename">Invoices</div>
+            <div class="row">
+                <div class="col-sm-1 col-sm-6 col-md-5 col-lg-2">
+                    <ul>
+                        <li id="create">Create</li>
+                        {% for item in objects %}
+                        <li>{{ item.date }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-1 col-sm-6 col-md-5 col-lg-2">
+                    <ul>
+                        <li id="no">No</li>
+                        {% for item in objects %}
+                        <li>{{ item.number }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-1 col-sm-6 col-md-5 col-lg-2">
+                    <ul>
+                        <li id="supply">Supply</li>
+                        {% for item in objects %}
+                        <li>{{ item.supply }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-1 col-sm-6 col-md-5 col-lg-3">
+                    <ul>
+                        <li id="comment">Comment</li>
+                        {% for item in objects %}
+                        <li>{{ item.comment }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-1 col-sm-6 col-md-5 col-lg-3">
+                    <ul id="options">
+                        <li>Actions</li>
+                        {% for item in objects %}
+                            {% if item.pk %}
+                                {% if user.is_admin %}
+                                <li><form method="POST" action="{% url 'edit' item.pk %}" novalidate>
+                                    {% csrf_token %}
+                                <input type="submit" value="Edit">
+                                </form><form method="POST" action="{% url 'delete_data' item.pk %}" novalidate>
+                                    {% csrf_token %}
+                                <input type="submit" id="delete_data" value="Delete">
+                                </form></li>
+                                {% else %}
+                                <li><form method="POST" action="{% url 'delete_data' item.pk %}" novalidate>
+                                    {% csrf_token %}
+                                <input type="submit" id="delete_data" value="Delete">
+                                </form></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+<script src="{% static 'testapp/js/edata.js' %}"></script>
+    {% endblock %}
+{% block heading %}
+
+{% endblock %}
+
+{% block content %} {%endblock %}

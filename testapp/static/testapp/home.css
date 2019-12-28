@@ -1,0 +1,106 @@
+
+
+.container-fluid {
+    position: relative;
+    top: 50px;
+    background-color: rgb(236, 236, 241);
+    width: 90%;
+    max-width: 960px;
+    height: 600px;
+    font-size: 20px;
+}
+
+.container0 {
+
+    position: relative;
+    padding-top: 20px;
+    height: 60px;
+    top: 0px
+
+}
+
+.table {
+    box-sizing: border-box;
+}
+.invoices {
+    padding: 0px 10px;
+    position: absolute;
+    left: 0px;
+    top: 21px;
+    background: #fff;
+    background-color: rgb(236, 236, 241);
+    border-left: 4px solid rgb(177, 186, 236, 0.5);
+    border-radius: 2px;
+}
+
+.form-action {
+    margin-top: 50px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    background-color: white;
+    border-color: 4px solid rgb(236, 236, 241);
+    width: auto;
+
+}
+
+.form-action #actions {
+    margin-top: 10px;
+    padding-left: 12px;
+    padding-top: 20px;
+    font-size: 15px;
+    font-family: Arial;
+    font-weight: bold;
+    color: rgb(39, 37, 37);
+
+}
+
+form {
+    display: inline;
+}
+
+#btn {
+    width: auto;
+    font-family: inherit;
+    margin-top: 1px;
+    margin-left: 12px;
+    padding: 10px 20px;
+    background-color: rgb(28, 100, 184);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: white;
+}
+
+
+.table {
+    margin-top: 40px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-color: 4px solid rgb(236, 236, 241);
+}
+.tablename {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-family: Arial;
+    font-weight: bold;
+
+}
+
+.row ul {
+    list-style-type: none;
+    margin-top: 20px;
+    height: auto;
+    color: rgb(36, 35, 35);
+    padding: 5px 40px;
+}
+
+ul li:not(:first-child) {
+    color: gray;
+    padding-left: 15px;
+    text-align: left;
+}

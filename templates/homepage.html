@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block extrahead %}
+    <link rel="stylesheet" media="all" href="{% static 'testapp/home.css' %}" type="text/css">
+    {% endblock %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <title>{% block title %}Testapp{% endblock %}</title>
+
+</head>
+<body>
+    {% block body %}
+    <div class="container-fluid">
+        <div class="container0">
+            <hr>
+            <div class="invoices">Welcome</div>
+        </div>
+
+        <div class="form-action">
+            {% if user.is_authenticated == False %}
+            <div id="actions">Register your role to get access or log in</div>
+            <form method="get" action="{% url 'admin_signup' %}">
+                <input type="submit" value="Admin" id="btn">
+            </form>
+            <form method="get" action="{% url 'moderator_signup' %}">
+                <input type="submit" value="Moderator" id="btn">
+            </form>
+            <form method="get" action="{% url 'guest_page' %}">
+                <input type="submit" value="Guest" id="btn">
+            </form>
+            <form method="get" action="{% url 'login' %}">
+                 <input type="submit" value="Log in" id="btn">
+            </form>
+            {% else %}
+            <form method="get" action="{% url 'logout' %}">
+                 <input type="submit" value="Log out" id="btn">
+            </form>
+            {% endif %}
+
+
+
+        </div>
+        
+
+    {% endblock %}
+{% block heading %}
+
+{% endblock %}
+
+{% block content %} {%endblock %}
+
+</body>
+</html>

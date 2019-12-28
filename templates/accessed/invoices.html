@@ -1,0 +1,75 @@
+{% extends 'homepage.html' %}
+{% load staticfiles %}
+
+{% block extrahead %}
+<link rel="stylesheet" media="all" href="{% static 'testapp/invoices.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'testapp/js/calendar/jquery.datetimepicker.min.css' %}" type="text/css">
+{% endblock %}
+{% block title %}{% endblock %}
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="container0">
+            <hr>
+            <div class="invoices">Create Invoice</div>
+        </div>
+
+
+                <div class="form-action">
+
+                    <form method="post" action="{% url 'post_invoice' %}" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-6">
+                                <label for="number"><p style="font-size:3vh;">Number:</p></label>
+                                <input type="text" id="number" name="number" placeholder="Put invoice number. E.g. INV-00000X" autocomplete="off">
+                                <svg id="i-settings" style="background-color: white;;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path d="M13 2 L13 6 11 7 8 4 4 8 7 11 6 13 2 13 2 19 6 19 7 21 4 24 8 28 11 25 13 26 13 30 19 30 19 26 21 25 24 28 28 24 25 21 26 19 30 19 30 13 26 13 25 11 28 8 24 4 21 7 19 6 19 2 Z" />
+                                    <circle cx="16" cy="16" r="4" />
+                                </svg>
+                            </div>
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-6">
+                                <label for="invoice_date"><p style="font-size:3vh;">Invoice Date:</p></label>
+                                <input type="text" id="invoice_date" name="invoice_date" placeholder="Choose date" autocomplete="off">
+                                <svg id="i-calendar" style="background-color: white;;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9" />
+                                </svg>
+
+                            </div>
+                                <div class="col-12 col-sm-4 col-md-4 col-lg-6">
+                                    <label for="supply_date"><p style="font-size:3vh;">Supply Date:</p></label>
+                                    <input type="text" id="supply_date" name="supply_date" placeholder="Choose date" autocomplete="off">
+                                    <svg id="i-calendar" style="background-color: white;;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9" />
+                                    </svg>
+                                </div>
+
+                            </div>
+                        <div class="row">
+                             <div class ="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label for="comment"><p style="font-size:3vh;">Comment</p></label>
+                                    <textarea id="comment" name="user_comment" placeholder="Leave a comment"></textarea>
+                                </div>
+                        </div>
+
+                        <input type="submit" id="save_button" value="Save" disabled>
+
+                    </form>
+
+                </div>
+
+        </div>
+
+
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/esm/popper.min.js"></script>
+<script src="{% static 'testapp/js/calendar/jquery.datetimepicker.full.js' %}"></script>
+<script src="{% static 'testapp/js/calendar/script.js' %}"></script>
+<script src="{% static 'testapp/js/pdata.js' %}"></script>
+{% endblock %}
+{% block heading %}
+
+{% endblock %}
+
+{% block content %} {%endblock %}

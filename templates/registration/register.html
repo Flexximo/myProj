@@ -1,0 +1,30 @@
+{% extends 'homepage.html' %}
+{% load staticfiles %}
+{% block extrahead %}
+ <link rel="stylesheet" media="all" href="{% static 'testapp/regform.css' %}" type="text/css">
+{% endblock %}
+{% block title %}
+    Register
+{% endblock %}
+{% block body %}
+    <div class="registerbox">
+        <div class="row">
+            {% if user_type == "admin" %}
+            <h2 id="admin">Sign up as {{ user_type }}</h2>
+            {% else %}
+            <h2 id="moder">Sign up as {{ user_type }}</h2>
+            {% endif %}
+            <form  method="post" >
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="success">
+             </form>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}
