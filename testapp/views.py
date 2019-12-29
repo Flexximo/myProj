@@ -138,7 +138,7 @@ def post_invoice(request):
                                 supply=supply_date, comment=comment)
         return redirect("available")
     else:
-        return HttpResponseRedirect("invoices")
+        return HttpResponseRedirect("invoices_page")
 
 #Вьюха для модератора
 class ModeratorSignUpView(CreateView):
@@ -153,7 +153,7 @@ class ModeratorSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('invoices_page')
+        return redirect('available')
 
 #Вьюха для админа
 class AdminSignUpView(CreateView):
@@ -168,4 +168,4 @@ class AdminSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('invoices_page')
+        return redirect('available')
