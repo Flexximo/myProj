@@ -5,6 +5,9 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 from .models import My_user, Invoices
 
+class newForm:
+    pass
+
 class ModeratorSignUpForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = My_user
